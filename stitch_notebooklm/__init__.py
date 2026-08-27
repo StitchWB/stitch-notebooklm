@@ -1,0 +1,1 @@
+"""Stitch NotebookLM service plugin."""

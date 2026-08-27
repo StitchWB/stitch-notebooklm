@@ -1,0 +1,144 @@
+{
+  "schema": "stitch.plugin/v2",
+  "id": "stitch-notebooklm",
+  "name": "Stitch NotebookLM",
+  "version": "0.1.0",
+  "service": "notebooklm",
+  "kind": "service",
+  "engine": {
+    "min": "0.3.0",
+    "api": 2
+  },
+  "depends": [],
+  "entry": {
+    "module": "stitch_notebooklm"
+  },
+  "capabilities": [],
+  "outputs": [],
+  "signature": "",
+  "contributions": {
+    "commands": [
+      {
+        "name": "list_notebooks",
+        "readonly": true
+      },
+      {
+        "name": "create_notebook",
+        "readonly": false
+      },
+      {
+        "name": "ask",
+        "readonly": false
+      },
+      {
+        "name": "generate_audio",
+        "readonly": false
+      }
+    ],
+    "ui": {
+      "kind": "declarative",
+      "tabs": [
+        {
+          "id": "notebooklm",
+          "label": "stitch-notebooklm.tab",
+          "icon": "BookOpen",
+          "page": "main"
+        }
+      ],
+      "page": {
+        "title": "stitch-notebooklm.title",
+        "nodes": [
+          {
+            "kind": "section",
+            "title": "stitch-notebooklm.notebooks",
+            "nodes": [
+              {
+                "kind": "table",
+                "id": "notebooks",
+                "columns": [
+                  {
+                    "key": "id",
+                    "label": "ID"
+                  },
+                  {
+                    "key": "title",
+                    "label": "stitch-notebooklm.titleColumn"
+                  }
+                ],
+                "source": {
+                  "command": "list_notebooks"
+                }
+              }
+            ]
+          },
+          {
+            "kind": "section",
+            "nodes": [
+              {
+                "kind": "button",
+                "id": "create-notebook",
+                "label": "stitch-notebooklm.create",
+                "command": "create_notebook",
+                "params": {
+                  "title": ""
+                },
+                "variant": "primary"
+              }
+            ]
+          },
+          {
+            "kind": "section",
+            "nodes": [
+              {
+                "kind": "field",
+                "field": "text",
+                "id": "ask-field",
+                "label": "stitch-notebooklm.question"
+              },
+              {
+                "kind": "button",
+                "id": "ask",
+                "label": "stitch-notebooklm.ask",
+                "command": "ask"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "i18n": {
+      "ru": {
+        "stitch-notebooklm": {
+          "title": "NotebookLM",
+          "tab": "NotebookLM",
+          "create": "Создать ноутбук",
+          "ask": "Спросить",
+          "empty": "Нет ноутбуков",
+          "notebooks": "Ноутбуки",
+          "question": "Вопрос",
+          "titleColumn": "Заголовок"
+        }
+      },
+      "en": {
+        "stitch-notebooklm": {
+          "title": "NotebookLM",
+          "tab": "NotebookLM",
+          "create": "Create Notebook",
+          "ask": "Ask",
+          "empty": "No notebooks",
+          "notebooks": "Notebooks",
+          "question": "Question",
+          "titleColumn": "Title"
+        }
+      }
+    },
+    "storage": {
+      "sqlite": true,
+      "migrations": "raw_sql"
+    }
+  },
+  "generated_by": {
+    "tool": "stitch_plugin_tools",
+    "scaffold": 3
+  }
+}
