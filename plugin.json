@@ -140,5 +140,59 @@
   "generated_by": {
     "tool": "stitch_plugin_tools",
     "scaffold": 3
-  }
+  },
+  "description": {
+    "ru": "Ведёт список ноутбуков NotebookLM в локальной SQLite, отвечает на вопросы и генерирует аудио через Google NotebookLM API при наличии cookies. Добавляет вкладку NotebookLM с таблицей и формами.",
+    "en": "Keeps a local SQLite list of NotebookLM notebooks and answers questions and generates audio via the Google NotebookLM API when cookies are available. Adds a NotebookLM tab with a table and forms."
+  },
+  "author": "WhiteBite",
+  "category": "ai-tools",
+  "status": "beta",
+  "icon": "📓",
+  "features": [
+    {
+      "title": {
+        "ru": "Локальное хранение ноутбуков в SQLite с привязкой к пользователю",
+        "en": "Local SQLite notebook storage with per-user ownership"
+      },
+      "status": "stable"
+    },
+    {
+      "title": {
+        "ru": "Вопросы к ноутбуку через notebooklm-py (при наличии cookies)",
+        "en": "Notebook Q&A via notebooklm-py (when cookies are provided)"
+      },
+      "status": "beta"
+    },
+    {
+      "title": {
+        "ru": "Генерация аудио-обзора ноутбука",
+        "en": "Notebook audio overview generation"
+      },
+      "status": "beta"
+    },
+    {
+      "title": {
+        "ru": "Вкладка NotebookLM: таблица ноутбуков, создание и форма вопроса",
+        "en": "NotebookLM tab: notebook table, create and ask forms"
+      },
+      "status": "stable"
+    }
+  ],
+  "changelog": [
+    {
+      "version": "0.1.0",
+      "date": "2026-08-22",
+      "changes": [
+        {
+          "ru": "Локальное хранение ноутбуков и RPC-команды",
+          "en": "Local notebook storage and RPC commands"
+        },
+        {
+          "ru": "Q&A и генерация аудио с graceful degradation без cookies",
+          "en": "Q&A and audio generation with graceful degradation without cookies"
+        }
+      ]
+    }
+  ]
 }
