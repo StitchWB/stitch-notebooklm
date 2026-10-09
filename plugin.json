@@ -2,7 +2,7 @@
   "schema": "stitch.plugin/v2",
   "id": "stitch-notebooklm",
   "name": "Stitch NotebookLM",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "service": "notebooklm",
   "kind": "service",
   "engine": {
@@ -188,6 +188,13 @@
     }
   ],
   "changelog": [
+    {
+      "version": "0.1.1",
+      "date": "2026-10-09",
+      "changes": [
+        "ask and title params wired; generate_audio command dropped"
+      ]
+    },
     {
       "version": "0.1.0",
       "date": "2026-08-22",
