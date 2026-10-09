@@ -29,10 +29,6 @@
       {
         "name": "ask",
         "readonly": false
-      },
-      {
-        "name": "generate_audio",
-        "readonly": false
       }
     ],
     "ui": {
@@ -67,7 +63,8 @@
                 ],
                 "source": {
                   "command": "list_notebooks"
-                }
+                },
+                "empty": "stitch-notebooklm.empty"
               }
             ]
           },
@@ -75,12 +72,18 @@
             "kind": "section",
             "nodes": [
               {
+                "kind": "field",
+                "field": "text",
+                "id": "title-field",
+                "label": "stitch-notebooklm.notebookTitle"
+              },
+              {
                 "kind": "button",
                 "id": "create-notebook",
                 "label": "stitch-notebooklm.create",
                 "command": "create_notebook",
-                "params": {
-                  "title": ""
+                "paramsFrom": {
+                  "title": "title-field"
                 },
                 "variant": "primary"
               }
@@ -99,7 +102,10 @@
                 "kind": "button",
                 "id": "ask",
                 "label": "stitch-notebooklm.ask",
-                "command": "ask"
+                "command": "ask",
+                "paramsFrom": {
+                  "question": "ask-field"
+                }
               }
             ]
           }
@@ -115,6 +121,7 @@
           "ask": "Спросить",
           "empty": "Нет ноутбуков",
           "notebooks": "Ноутбуки",
+          "notebookTitle": "Название ноутбука",
           "question": "Вопрос",
           "titleColumn": "Заголовок"
         }
@@ -127,6 +134,7 @@
           "ask": "Ask",
           "empty": "No notebooks",
           "notebooks": "Notebooks",
+          "notebookTitle": "Notebook title",
           "question": "Question",
           "titleColumn": "Title"
         }
